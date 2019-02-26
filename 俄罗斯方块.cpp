@@ -292,13 +292,13 @@ int ri(int i, int mvy, int mvx, int *fg, int *zw)
 {	
 	int j=NULL;
 	j=i;
-	//½«Ô­ÓĞÍ¼ĞÎÇåÁã£»
+	//å°†åŸæœ‰å›¾å½¢æ¸…é›¶ï¼›
 	int x1=*zw+mvy,y1=*(zw+1)+mvx,x2=*(zw+2)+mvy,y2=*(zw+3)+mvx,x3=*(zw+4)+mvy,y3=*(zw+5)+mvx,x4=*(zw+6)+mvy,y4=*(zw+7)+mvx;
 	*(fg+x1*10+y1)=0;
 	*(fg+x2*10+y2)=0;
 	*(fg+x3*10+y3)=0;
 	*(fg+x4*10+y4)=0;
-	//¸Ä±äiµÄÖµ
+	//æ”¹å˜içš„å€¼
 	if(i==0||i==1||i==2||i==11||i==12||i==13||i==15||i==16||i==17)
 	    i=i+1;
 	else if(i==3)
@@ -319,7 +319,7 @@ int ri(int i, int mvy, int mvx, int *fg, int *zw)
 		i=11;
 	else if(i==18)
 		i=15;
-	//»ñÈ¡ĞÂµÄÍ¼ĞÎ
+	//è·å–æ–°çš„å›¾å½¢
     int fg1[21][10],*zfg1;
 	zfg1=fg1[0];
 	drawtu(i,zfg1,zw,mvy,mvx);                          //Determine the type of image 
@@ -403,7 +403,7 @@ int main(void)
 			ce=a+ce;
 			drawtu(i,zfg,zzw,mvy,mvx);                          //Determine the type of image 
 			//Move the image down
-			BeginBatchDraw();//¿ªÊ¼ÅúÁ¿»æÍ¼
+			BeginBatchDraw();//å¼€å§‹æ‰¹é‡ç»˜å›¾
 			for(mvy=0;mvy<ce;mvy++)
 			{	
 				//Output score 
@@ -418,10 +418,10 @@ int main(void)
 				pdc=pdfg(zfg,mvy,i,zzw,mvx);              //Determine if the image can continue to move down 
 				if(pdc==1)
 					break;
-				FlushBatchDraw();//Ö´ĞĞÎ´Íê³ÉµÄ»æÖÆÈÎÎñ
-				Sleep(xv);//¹ÒÆğ5ºÁÃë
+				FlushBatchDraw();//æ‰§è¡Œæœªå®Œæˆçš„ç»˜åˆ¶ä»»åŠ¡
+				Sleep(xv);//æŒ‚èµ·5æ¯«ç§’
 				cleardevice();
-		    	EndBatchDraw();//½áÊøÅúÁ¿»æÖÆ
+		    	EndBatchDraw();//ç»“æŸæ‰¹é‡ç»˜åˆ¶
                 if(kbhit()!=0)
 				{
 					outtextxy(250,100,buffer);
